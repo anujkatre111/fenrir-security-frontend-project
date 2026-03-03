@@ -27,25 +27,25 @@ const findings = [
 
 const FindingLogCards = () => {
   return (
-    <div className='flex flex-col gap-4 font-mono text-sm'>
+    <div className='flex flex-col gap-4 text-sm'>
       {findings.map((finding) => (
         <div
           key={finding.title}
-          className='rounded-lg bg-white p-4 shadow-sm border border-slate-100'
+          className='rounded-[16px] bg-white dark:bg-[#181B22] p-4 shadow-sm dark:shadow-none border border-slate-100 dark:border-[#404040]'
         >
           <div className='flex justify-between items-start gap-4 mb-3'>
             <SeverityTag severity={finding.severity} />
-            <span className='text-gray-400 text-xs font-medium shrink-0'>
+            <span className='text-gray-400 dark:text-[#a3a3a3] text-xs font-mono font-medium shrink-0'>
               {finding.timestamp}
             </span>
           </div>
-          <h3 className='text-slate-900 font-semibold text-base mb-1'>
+          <h3 className='text-slate-900 dark:text-white font-semibold text-base mb-1'>
             {finding.title}
           </h3>
-          <p className='text-[#0CC8A8] text-sm font-medium mb-2'>
+          <p className='text-[#2dd4bf] text-sm font-medium mb-2'>
             {finding.endpoint}
           </p>
-          <p className='text-gray-500 text-sm leading-relaxed'>
+          <p className='text-gray-500 dark:text-[#d4d4d4] text-sm leading-relaxed'>
             {finding.description}
           </p>
         </div>

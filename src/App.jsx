@@ -1,5 +1,6 @@
 import React from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { ThemeProvider } from './context/ThemeContext'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import ScanDetail from './pages/ScanDetail'
@@ -21,9 +22,9 @@ const router = createBrowserRouter([
 
 const App = () => {
   return (
-    <div>
+    <ThemeProvider>
       <RouterProvider router={router} />
-    </div>
+    </ThemeProvider>
   )
 }
 

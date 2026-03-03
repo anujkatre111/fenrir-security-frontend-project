@@ -1,20 +1,30 @@
-import { CheckIcon,  StarIcon } from 'lucide-react'
+import { CheckIcon, Moon, StarIcon, Sun } from 'lucide-react'
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useTheme } from '../context/ThemeContext'
 
 const Login = () => {
   const navigate = useNavigate()
+  const { theme, toggleTheme } = useTheme()
   const handleSubmit = () => {
     navigate('/dashboard')
   }
   return (
     <div className='flex flex-col md:flex-row md:justify-between md:items-center items-center min-h-screen overflow-y-auto p-4 pt-20 md:pt-0 md:p-0'>
-      <div className='absolute top-3 left-3 z-10'>
+      <div className='absolute top-3 left-3 z-10 flex items-center gap-4'>
       <svg className='inline-block mr-[8px]' width="24" height="24" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="80" cy="80" r="80" fill="#0AA49C"/>
       <circle cx="80" cy="80" r="30" fill="white"/>
       </svg>
       <span className='text-white text-[18px]'>aps</span>
+        <button
+          type='button'
+          onClick={toggleTheme}
+          className='p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors'
+          aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+        >
+          {theme === 'dark' ? <Sun className='w-5 h-5' /> : <Moon className='w-5 h-5' />}
+        </button>
       </div>
       <img src='/images/image.png' alt="logo" className='absolute top-0 left-0 w-full h-full object-cover -z-10' />
       <div className='hidden md:flex md:ml-[100px] z-[1]'>
@@ -42,32 +52,32 @@ const Login = () => {
       </div>
 
 
-      <div className='flex flex-col justify-center gap-4 z-[1] bg-white rounded-lg py-6 px-6 md:py-8 md:px-10 md:mr-[100px] w-full max-w-[400px]'>
-        <h1 className='text-[#333333] text-2xl md:text-3xl font-medium text-center'>SignUp</h1>
-        <p className='text-center text-[#171717] text-sm md:text-base'>Already have an account? <Link to="/login" className='text-[#0aa49c] underline'>Login</Link></p>
+      <div className='flex flex-col justify-center gap-4 z-[1] bg-white dark:bg-[#0C0F13] rounded-lg py-6 px-6 md:py-8 md:px-10 md:mr-[100px] w-full max-w-[400px] border border-transparent dark:border-[#262626]'>
+        <h1 className='text-[#333333] dark:text-[#fafafa] text-2xl md:text-3xl font-medium text-center'>SignUp</h1>
+        <p className='text-center text-[#171717] dark:text-[#a3a3a3] text-sm md:text-base'>Already have an account? <Link to="/login" className='text-[#0aa49c] underline'>Login</Link></p>
         <form className='flex flex-col gap-4 w-full'> 
-          <div className='border border-gray-300 rounded-[8px] px-5 py-3'>
-            <input type="text" placeholder="First Name" className='w-full bg-transparent placeholder:text-[#989797] placeholder:text-[14px] placeholder:tracking-normal outline-none' />
+          <div className='border border-gray-300 dark:border-[#262626] rounded-[8px] px-5 py-3'>
+            <input type="text" placeholder="First Name" className='w-full bg-transparent text-slate-900 dark:text-[#fafafa] placeholder:text-[#989797] dark:placeholder:text-[#737373] placeholder:text-[14px] placeholder:tracking-normal outline-none' />
           </div>
-          <div className='border border-gray-300 rounded-[8px] px-5 py-3'>
-            <input type="text" placeholder="Last Name" className='w-full bg-transparent placeholder:text-[#989797] placeholder:text-[14px] placeholder:tracking-normal outline-none' />
+          <div className='border border-gray-300 dark:border-[#262626] rounded-[8px] px-5 py-3'>
+            <input type="text" placeholder="Last Name" className='w-full bg-transparent text-slate-900 dark:text-[#fafafa] placeholder:text-[#989797] dark:placeholder:text-[#737373] placeholder:text-[14px] placeholder:tracking-normal outline-none' />
           </div>
-          <div className='border border-gray-300 rounded-[8px] px-5 py-3'>
-            <input type="email" placeholder="Email" className='w-full bg-transparent placeholder:text-[#989797] placeholder:text-[14px] placeholder:tracking-normal outline-none' />
+          <div className='border border-gray-300 dark:border-[#262626] rounded-[8px] px-5 py-3'>
+            <input type="email" placeholder="Email" className='w-full bg-transparent text-slate-900 dark:text-[#fafafa] placeholder:text-[#989797] dark:placeholder:text-[#737373] placeholder:text-[14px] placeholder:tracking-normal outline-none' />
           </div>
-          <div className='border border-gray-300 rounded-[8px] px-5 py-3'>
-            <input type="password" placeholder="Password" className='w-full bg-transparent placeholder:text-[#989797] placeholder:text-[14px] placeholder:tracking-normal outline-none' />
+          <div className='border border-gray-300 dark:border-[#262626] rounded-[8px] px-5 py-3'>
+            <input type="password" placeholder="Password" className='w-full bg-transparent text-slate-900 dark:text-[#fafafa] placeholder:text-[#989797] dark:placeholder:text-[#737373] placeholder:text-[14px] placeholder:tracking-normal outline-none' />
           </div>
           
           <label className='flex items-start gap-3 cursor-pointer'>
             <input type="checkbox" className='mt-1 rounded border-gray-300 text-[#068f78] focus:ring-[#068f78]' />
-            <span className='text-[12px] font-normal'>I agree to Aps's <Link to="/terms" className='text-blue-600 underline hover:underline'>Terms and Conditions</Link> and acknowledge the <Link to="/privacy" className='text-blue-600 underline hover:underline'>Privacy Policy</Link></span>
+            <span className='text-[12px] font-normal text-slate-700 dark:text-[#a3a3a3]'>I agree to Aps's <Link to="/terms" className='text-blue-600 dark:text-sky-400 underline hover:underline'>Terms and Conditions</Link> and acknowledge the <Link to="/privacy" className='text-blue-600 dark:text-sky-400 underline hover:underline'>Privacy Policy</Link></span>
           </label>
           <button onClick={handleSubmit} type='submit' className='bg-[#0aa49c] text-white text-[14px] p-2 rounded-[24px] hover:bg-[#068f78] transition-all duration-300 font-light tracking-tight cursor-pointer'>Create Account</button>
         </form>
 
         <div className='flex gap-3'>
-          <button type='button' className='flex-1 flex justify-center items-center py-2 rounded-full bg-red-50 hover:bg-red-100 transition' aria-label='Google'>
+          <button type='button' className='flex-1 flex justify-center items-center py-2 rounded-full bg-red-50 dark:bg-red-900/20 hover:bg-red-100 dark:hover:bg-red-900/30 transition' aria-label='Google'>
           <svg className='w-6 h-6' viewBox="-0.5 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Google-color</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Color-" transform="translate(-401.000000, -860.000000)"> <g id="Google" transform="translate(401.000000, 860.000000)"> <path d="M9.82727273,24 C9.82727273,22.4757333 10.0804318,21.0144 10.5322727,19.6437333 L2.62345455,13.6042667 C1.08206818,16.7338667 0.213636364,20.2602667 0.213636364,24 C0.213636364,27.7365333 1.081,31.2608 2.62025,34.3882667 L10.5247955,28.3370667 C10.0772273,26.9728 9.82727273,25.5168 9.82727273,24" id="Fill-1" fill="#FBBC05"> </path> <path d="M23.7136364,10.1333333 C27.025,10.1333333 30.0159091,11.3066667 32.3659091,13.2266667 L39.2022727,6.4 C35.0363636,2.77333333 29.6954545,0.533333333 23.7136364,0.533333333 C14.4268636,0.533333333 6.44540909,5.84426667 2.62345455,13.6042667 L10.5322727,19.6437333 C12.3545909,14.112 17.5491591,10.1333333 23.7136364,10.1333333" id="Fill-2" fill="#EB4335"> </path> <path d="M23.7136364,37.8666667 C17.5491591,37.8666667 12.3545909,33.888 10.5322727,28.3562667 L2.62345455,34.3946667 C6.44540909,42.1557333 14.4268636,47.4666667 23.7136364,47.4666667 C29.4455,47.4666667 34.9177955,45.4314667 39.0249545,41.6181333 L31.5177727,35.8144 C29.3995682,37.1488 26.7323182,37.8666667 23.7136364,37.8666667" id="Fill-3" fill="#34A853"> </path> <path d="M46.1454545,24 C46.1454545,22.6133333 45.9318182,21.12 45.6113636,19.7333333 L23.7136364,19.7333333 L23.7136364,28.8 L36.3181818,28.8 C35.6879545,31.8912 33.9724545,34.2677333 31.5177727,35.8144 L39.0249545,41.6181333 C43.3393409,37.6138667 46.1454545,31.6490667 46.1454545,24" id="Fill-4" fill="#4285F4"> </path> </g> </g> </g> </g></svg>
           </button>
           <button type='button' className='flex-1 flex justify-center items-center py-2 rounded-full bg-black text-white hover:bg-gray-800 transition' aria-label='Apple'>

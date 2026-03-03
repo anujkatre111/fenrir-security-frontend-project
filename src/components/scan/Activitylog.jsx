@@ -24,11 +24,11 @@ const activityEntries = [
   },
   {
     time: '09:03:00',
-    text: "Great! I found a login page for a Help Desk Platform. I can see a useful comment: \"TODO: Delete the testing account (",
+    text: "Great! I found a login page for a Help Desk Platform. I can see a useful comment: \"",
     highlights: [
-      { text: 'test:test', type: 'green' },
+      { text: 'TODO: Delete the testing account (test:test)', type: 'amber' },
       { text: ')\". Let me test this credential. The login redirects to ', type: 'none' },
-      { text: '/password/test', type: 'dark' },
+      { text: '/password/test', type: 'teal' },
       { text: '. Let me follow that path and explore it', type: 'none' },
     ],
   },
@@ -63,13 +63,13 @@ const Activitylog = ({ part = 'full', activeTab, onTabChange }) => {
 
   if (part === 'tabs') {
     return (
-      <div className='flex gap-6'>
+      <div className='flex gap-6 -mb-px'>
         <button
           onClick={() => setTab('activity')}
           className={`pb-3 text-sm font-medium transition-colors ${
             tab === 'activity'
-              ? 'text-[#0CC8A8] border-b-2 border-[#0CC8A8]'
-              : 'text-gray-500 hover:text-gray-700'
+              ? 'text-[#0AA49C] border-b-2 border-[#0AA49C]'
+              : 'text-gray-500 dark:text-[#a3a3a3] hover:text-gray-700 dark:hover:text-[#fafafa]'
           }`}
         >
           Activity Log
@@ -78,8 +78,8 @@ const Activitylog = ({ part = 'full', activeTab, onTabChange }) => {
           onClick={() => setTab('verification')}
           className={`pb-3 text-sm font-medium transition-colors ${
             tab === 'verification'
-              ? 'text-[#0CC8A8] border-b-2 border-[#0CC8A8]'
-              : 'text-gray-500 hover:text-gray-700'
+              ? 'text-[#0AA49C] border-b-2 border-[#0AA49C]'
+              : 'text-gray-500 dark:text-[#a3a3a3] hover:text-gray-700 dark:hover:text-[#fafafa]'
           }`}
         >
           Verification Loops
@@ -95,15 +95,21 @@ const Activitylog = ({ part = 'full', activeTab, onTabChange }) => {
         {tab === 'activity' &&
           activityEntries.map((entry) => (
             <div key={entry.time} className='leading-relaxed'>
-              <span className='text-gray-400 mr-2'>
+              <span className='text-gray-400 dark:text-[#737373] mr-2'>
                 [{entry.time}]
               </span>
-              <span className='text-slate-700 whitespace-pre-line'>
+              <span className='text-slate-700 dark:text-[#fafafa] whitespace-pre-line'>
                 {entry.text}
                 {entry.highlights?.map((h, i) => {
-                  if (h.type === 'green')
+                  if (h.type === 'green' || h.type === 'teal')
                     return (
-                      <span key={i} className='text-[#0CC8A8] font-medium'>
+                      <span key={i} className='text-[#0AA49C] font-medium'>
+                        {h.text}
+                      </span>
+                    )
+                  if (h.type === 'amber')
+                    return (
+                      <span key={i} className='text-[#0d4d47] dark:text-[#0d9488] font-medium'>
                         {h.text}
                       </span>
                     )
@@ -111,7 +117,7 @@ const Activitylog = ({ part = 'full', activeTab, onTabChange }) => {
                     return (
                       <span
                         key={i}
-                        className='bg-slate-700 text-white px-1.5 py-0.5 rounded mx-0.5'
+                        className='bg-slate-700 dark:bg-[#262626] text-white px-1.5 py-0.5 rounded mx-0.5'
                       >
                         {h.text}
                       </span>
@@ -120,14 +126,17 @@ const Activitylog = ({ part = 'full', activeTab, onTabChange }) => {
                     return (
                       <span
                         key={i}
-                        className='bg-sky-100 text-sky-800 px-1.5 py-0.5 rounded mx-0.5 font-medium'
+                        className='bg-green-600 text-white px-1.5 py-0.5 rounded mx-0.5 font-medium'
                       >
                         {h.text}
                       </span>
                     )
                   if (h.type === 'bold')
                     return (
-                      <span key={i} className='font-semibold text-slate-900'>
+                      <span
+                        key={i}
+                        className='bg-red-600 text-white px-1.5 py-0.5 rounded mx-0.5 font-semibold'
+                      >
                         {h.text}
                       </span>
                     )
@@ -138,7 +147,7 @@ const Activitylog = ({ part = 'full', activeTab, onTabChange }) => {
             </div>
           ))}
         {tab === 'verification' && (
-          <p className='text-gray-500 text-sm'>No verification loops yet.</p>
+          <p className='text-gray-500 dark:text-[#a3a3a3] text-sm'>No verification loops yet.</p>
         )}
         </div>
       </div>
@@ -147,13 +156,13 @@ const Activitylog = ({ part = 'full', activeTab, onTabChange }) => {
 
   return (
     <div className='flex flex-col h-full'>
-      <div className='flex gap-6 border-b border-gray-200 mb-4'>
+      <div className='flex gap-6 border-b border-gray-200 dark:border-[#262626] mb-4'>
         <button
           onClick={() => setTab('activity')}
           className={`pb-3 text-sm font-medium transition-colors ${
             tab === 'activity'
-              ? 'text-[#0CC8A8] border-b-2 border-[#0CC8A8]'
-              : 'text-gray-500 hover:text-gray-700'
+              ? 'text-[#0AA49C] border-b-2 border-[#0AA49C]'
+              : 'text-gray-500 dark:text-[#a3a3a3] hover:text-gray-700 dark:hover:text-[#fafafa]'
           }`}
         >
           Activity Log
@@ -162,8 +171,8 @@ const Activitylog = ({ part = 'full', activeTab, onTabChange }) => {
           onClick={() => setTab('verification')}
           className={`pb-3 text-sm font-medium transition-colors ${
             tab === 'verification'
-              ? 'text-[#0CC8A8] border-b-2 border-[#0CC8A8]'
-              : 'text-gray-500 hover:text-gray-700'
+              ? 'text-[#0AA49C] border-b-2 border-[#0AA49C]'
+              : 'text-gray-500 dark:text-[#a3a3a3] hover:text-gray-700 dark:hover:text-[#fafafa]'
           }`}
         >
           Verification Loops
@@ -174,15 +183,21 @@ const Activitylog = ({ part = 'full', activeTab, onTabChange }) => {
         {tab === 'activity' &&
           activityEntries.map((entry) => (
             <div key={entry.time} className='leading-relaxed'>
-              <span className='text-gray-400 mr-2'>
+              <span className='text-gray-400 dark:text-[#737373] mr-2'>
                 [{entry.time}]
               </span>
-              <span className='text-slate-700 whitespace-pre-line'>
+              <span className='text-slate-700 dark:text-[#fafafa] whitespace-pre-line'>
                 {entry.text}
                 {entry.highlights?.map((h, i) => {
-                  if (h.type === 'green')
+                  if (h.type === 'green' || h.type === 'teal')
                     return (
-                      <span key={i} className='text-[#0CC8A8] font-medium'>
+                      <span key={i} className='text-[#0AA49C] font-medium'>
+                        {h.text}
+                      </span>
+                    )
+                  if (h.type === 'amber')
+                    return (
+                      <span key={i} className='text-[#0d4d47] dark:text-[#0d9488] font-medium'>
                         {h.text}
                       </span>
                     )
@@ -190,7 +205,7 @@ const Activitylog = ({ part = 'full', activeTab, onTabChange }) => {
                     return (
                       <span
                         key={i}
-                        className='bg-slate-700 text-white px-1.5 py-0.5 rounded mx-0.5'
+                        className='bg-slate-700 dark:bg-[#262626] text-white px-1.5 py-0.5 rounded mx-0.5'
                       >
                         {h.text}
                       </span>
@@ -199,14 +214,17 @@ const Activitylog = ({ part = 'full', activeTab, onTabChange }) => {
                     return (
                       <span
                         key={i}
-                        className='bg-sky-100 text-sky-800 px-1.5 py-0.5 rounded mx-0.5 font-medium'
+                        className='bg-green-600 text-white px-1.5 py-0.5 rounded mx-0.5 font-medium'
                       >
                         {h.text}
                       </span>
                     )
                   if (h.type === 'bold')
                     return (
-                      <span key={i} className='font-semibold text-slate-900'>
+                      <span
+                        key={i}
+                        className='bg-red-600 text-white px-1.5 py-0.5 rounded mx-0.5 font-semibold'
+                      >
                         {h.text}
                       </span>
                     )
@@ -217,7 +235,7 @@ const Activitylog = ({ part = 'full', activeTab, onTabChange }) => {
             </div>
           ))}
         {tab === 'verification' && (
-          <p className='text-gray-500 text-sm'>No verification loops yet.</p>
+          <p className='text-gray-500 dark:text-[#a3a3a3] text-sm'>No verification loops yet.</p>
         )}
       </div>
     </div>

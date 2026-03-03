@@ -1,5 +1,42 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  /* Dark mode palette - use consistently across app */
+  --dark-bg-base: #0C0F13;
+  --dark-bg-panel: #0C0F13;
+  --dark-bg-elevated: #141414;
+  --dark-border: #262626;
+  --dark-text-primary: #fafafa;
+  --dark-text-secondary: #a3a3a3;
+  --dark-text-muted: #737373;
+  --dark-accent: #0AA49C;
+}
+
+body {
+  font-family: var(--font-sans);
+  @apply bg-gray-50 text-slate-900;
+}
+.dark body {
+  background-color: var(--dark-bg-base);
+  color: var(--dark-text-primary);
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.dark ::-webkit-scrollbar-track {
+  background: var(--dark-bg-base);
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: var(--dark-border);
+  border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #404040;
 }
