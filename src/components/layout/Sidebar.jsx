@@ -16,7 +16,7 @@ const sidebarItems2 = [
 
 const Sidebar = () => {
   return (
-    <div className='flex flex-col justify-between w-[200px] h-screen shadow-md'>
+    <aside className='fixed left-0 top-0 z-40 flex flex-col justify-between w-[200px] h-screen shadow-md border-r border-slate-200 bg-white'>
       <div>
       <div className='flex items-center gap-2 px-4 py-6'>
       <svg className='inline-block mr-[8px]' width="24" height="24" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -76,7 +76,7 @@ const Sidebar = () => {
         <ChevronRight className='w-4 h-4 text-slate-400 shrink-0' />
         </button>
       </div>
-    </div>
+    </aside>
   )
 }
 
