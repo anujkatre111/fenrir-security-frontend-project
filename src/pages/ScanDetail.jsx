@@ -1,7 +1,7 @@
 import React from 'react'
 import Sidebar from '../components/layout/Sidebar'
 
-const Dashboard = () => {
+const ScanDetail = () => {
   return (
     <div>
       <Sidebar/>
@@ -9,4 +9,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default ScanDetail
