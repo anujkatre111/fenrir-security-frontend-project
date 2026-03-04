@@ -126,34 +126,34 @@ const ScanTable = () => {
     <div className='rounded-lg border border-slate-200 dark:border-[#404040] bg-white dark:bg-[#181B22] shadow-md dark:shadow-none overflow-hidden'>
       {/* Toolbar */}
       <div className='flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 p-4 border-b border-slate-200 dark:border-[#404040]'>
-        <div className='relative flex-1 max-w-md'>
+        <div className='relative flex-1 min-w-0'>
           <Search className='absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400' />
           <input
             type='text'
             placeholder='Search scans by name or type...'
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className='w-full pl-9 pr-4 py-2 rounded-lg border border-slate-200 dark:border-[#404040] bg-slate-50 dark:bg-[#0C0F13] text-slate-900 dark:text-white placeholder:text-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-[#0AA49C]/50'
+            className='w-full pl-9 pr-4 py-2 rounded border border-slate-200 dark:border-[#404040] bg-slate-50 dark:bg-[#0C0F13] text-slate-900 dark:text-white placeholder:text-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-[#0AA49C]/50'
           />
         </div>
-        <div className='flex flex-wrap items-center gap-2'>
+        <div className='flex flex-wrap items-center gap-2 shrink-0'>
           <button
             type='button'
-            className='flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-200 dark:border-[#404040] bg-white dark:bg-[#0C0F13] text-slate-700 dark:text-slate-300 text-sm font-medium hover:bg-slate-50 dark:hover:bg-[#262626] transition'
+            className='flex items-center gap-2 px-4 py-2 rounded border border-slate-200 dark:border-[#404040] bg-white dark:bg-[#0C0F13] text-slate-700 dark:text-slate-300 text-sm font-medium hover:bg-slate-50 dark:hover:bg-[#262626] transition'
           >
             <Filter className='w-4 h-4' />
             Filter
           </button>
           <button
             type='button'
-            className='flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-200 dark:border-[#404040] bg-white dark:bg-[#0C0F13] text-slate-700 dark:text-slate-300 text-sm font-medium hover:bg-slate-50 dark:hover:bg-[#262626] transition'
+            className='flex items-center gap-2 px-4 py-2 rounded border border-slate-200 dark:border-[#404040] bg-white dark:bg-[#0C0F13] text-slate-700 dark:text-slate-300 text-sm font-medium hover:bg-slate-50 dark:hover:bg-[#262626] transition'
           >
             <LayoutGrid className='w-4 h-4' />
             Column
           </button>
           <button
             type='button'
-            className='flex items-center gap-2 px-4 py-2 rounded-lg bg-[#0AA49C] text-white text-sm font-medium hover:bg-[#089b8a] transition shadow-sm'
+            className='flex items-center gap-2 px-4 py-2 rounded bg-[#0AA49C] text-white text-sm font-medium hover:bg-[#089b8a] transition shadow-sm'
           >
             <Plus className='w-4 h-4' />
             New scan

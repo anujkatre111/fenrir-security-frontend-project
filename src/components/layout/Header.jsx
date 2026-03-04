@@ -27,7 +27,7 @@ const Header = () => {
         <button type='button' className='px-4 py-2 rounded-lg border border-gray-300 dark:border-[#262626] bg-white dark:bg-[#262626] text-slate-900 dark:text-white text-[14px] font-normal hover:bg-gray-50 dark:hover:bg-[#404040] transition'>
           Export Report
         </button>
-        <button type='button' className='px-4 py-2 rounded-lg bg-red-500 dark:bg-red-600 border border-transparent text-white text-[14px] font-normal hover:bg-red-600 dark:hover:bg-red-700 transition'>
+        <button type='button' className='px-4 py-2 rounded-lg bg-rose-50 dark:bg-rose-950/30 border border-rose-200 dark:border-rose-800/40 text-rose-600 dark:text-rose-400 text-[14px] font-normal hover:bg-rose-100 dark:hover:bg-rose-950/50 transition'>
           Stop Scan
         </button>
       </div>

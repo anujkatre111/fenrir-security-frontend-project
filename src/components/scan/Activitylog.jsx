@@ -135,7 +135,7 @@ const Activitylog = ({ part = 'full', activeTab, onTabChange }) => {
                     return (
                       <span
                         key={i}
-                        className='bg-red-600 text-white px-1.5 py-0.5 rounded mx-0.5 font-semibold'
+                        className='text-red-600 dark:text-red-500 font-semibold'
                       >
                         {h.text}
                       </span>
@@ -223,7 +223,7 @@ const Activitylog = ({ part = 'full', activeTab, onTabChange }) => {
                     return (
                       <span
                         key={i}
-                        className='bg-red-600 text-white px-1.5 py-0.5 rounded mx-0.5 font-semibold'
+                        className='text-red-600 dark:text-red-500 font-semibold'
                       >
                         {h.text}
                       </span>

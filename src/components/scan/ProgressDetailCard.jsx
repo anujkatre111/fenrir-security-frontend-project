@@ -50,7 +50,7 @@ const ProgressDetailCard = () => {
             <h1 className='text-gray-500 dark:text-[#a3a3a3] text-[12px] font-medium'>Files</h1><h1 className='text-slate-900 dark:text-white text-[14px] font-semibold'>Control.pdf</h1>
           </div>
           <div className='flex flex-col gap-1'>
-            <h1 className='text-gray-500 dark:text-[#a3a3a3] text-[12px] font-medium'>Checklist</h1><h1 className='text-[14px] font-semibold'><span className='text-[#0AA49C]'>40</span><span className='text-slate-900 dark:text-white'>/350</span></h1>
+            <h1 className='text-gray-500 dark:text-[#a3a3a3] text-[12px] font-medium'>Checklist</h1><h1 className='text-[14px] font-semibold text-[#0AA49C]'>40/350</h1>
           </div>
         </div>
       </div>

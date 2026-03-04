@@ -16,7 +16,7 @@ const LiveScanConsole = () => {
             <span className='text-sm font-medium text-slate-900 dark:text-[#fafafa]'>
               Live Scan Console
             </span>
-            <button type='button' className='flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#0AA49C] text-white text-xs font-medium'>
+            <button type='button' className='flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 text-xs font-medium'>
               <Clock className='w-3.5 h-3.5' />
               Running..
             </button>
@@ -46,7 +46,7 @@ const LiveScanConsole = () => {
             <span className='text-sm font-medium text-slate-900 dark:text-[#fafafa]'>
               Live Scan Console
             </span>
-            <button type='button' className='flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-[#0AA49C] text-white text-xs font-medium'>
+            <button type='button' className='flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 text-xs font-medium'>
               <Clock className='w-3.5 h-3.5' />
               Running..
             </button>
