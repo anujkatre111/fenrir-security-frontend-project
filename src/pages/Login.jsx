@@ -1,14 +1,15 @@
-import { CheckIcon, Moon, StarIcon, Sun } from 'lucide-react'
+import { CheckIcon, StarIcon } from 'lucide-react'
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { useTheme } from '../context/ThemeContext'
 
 const Login = () => {
   const navigate = useNavigate()
-  const { theme, toggleTheme } = useTheme()
-  const handleSubmit = () => {
-    navigate('/dashboard')
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    navigate('/dashboard', { replace: true })
   }
+
   return (
     <div className='flex flex-col md:flex-row md:justify-between md:items-center items-center min-h-screen overflow-y-auto p-4 pt-20 md:pt-0 md:p-0'>
       <div className='absolute top-3 left-3 z-10 flex items-center gap-4'>
@@ -17,14 +18,6 @@ const Login = () => {
       <circle cx="80" cy="80" r="30" fill="white"/>
       </svg>
       <span className='text-white text-[18px]'>aps</span>
-        <button
-          type='button'
-          onClick={toggleTheme}
-          className='p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors'
-          aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-        >
-          {theme === 'dark' ? <Sun className='w-5 h-5' /> : <Moon className='w-5 h-5' />}
-        </button>
       </div>
       <img src='/images/image.png' alt="logo" className='absolute top-0 left-0 w-full h-full object-cover -z-10' />
       <div className='hidden md:flex md:ml-[100px] z-[1]'>
@@ -55,7 +48,7 @@ const Login = () => {
       <div className='flex flex-col justify-center gap-4 z-[1] bg-white dark:bg-[#0C0F13] rounded-lg py-6 px-6 md:py-8 md:px-10 md:mr-[100px] w-full max-w-[400px] border border-transparent dark:border-[#262626]'>
         <h1 className='text-[#333333] dark:text-[#fafafa] text-2xl md:text-3xl font-medium text-center'>SignUp</h1>
         <p className='text-center text-[#171717] dark:text-[#a3a3a3] text-sm md:text-base'>Already have an account? <Link to="/login" className='text-[#0aa49c] underline'>Login</Link></p>
-        <form className='flex flex-col gap-4 w-full'> 
+        <form onSubmit={handleSubmit} className='flex flex-col gap-4 w-full'> 
           <div className='border border-gray-300 dark:border-[#262626] rounded-[8px] px-5 py-3'>
             <input type="text" placeholder="First Name" className='w-full bg-transparent text-slate-900 dark:text-[#fafafa] placeholder:text-[#989797] dark:placeholder:text-[#737373] placeholder:text-[14px] placeholder:tracking-normal outline-none' />
           </div>
@@ -73,7 +66,7 @@ const Login = () => {
             <input type="checkbox" className='mt-1 rounded border-gray-300 text-[#068f78] focus:ring-[#068f78]' />
             <span className='text-[12px] font-normal text-slate-700 dark:text-[#a3a3a3]'>I agree to Aps's <Link to="/terms" className='text-blue-600 dark:text-sky-400 underline hover:underline'>Terms and Conditions</Link> and acknowledge the <Link to="/privacy" className='text-blue-600 dark:text-sky-400 underline hover:underline'>Privacy Policy</Link></span>
           </label>
-          <button onClick={handleSubmit} type='submit' className='bg-[#0aa49c] text-white text-[14px] p-2 rounded-[24px] hover:bg-[#068f78] transition-all duration-300 font-light tracking-tight cursor-pointer'>Create Account</button>
+          <button type='submit' className='bg-[#0aa49c] text-white text-[14px] p-2 rounded-[24px] hover:bg-[#068f78] transition-all duration-300 font-light tracking-tight cursor-pointer'>Create Account</button>
         </form>
 
         <div className='flex gap-3'>
