@@ -25,10 +25,11 @@ const LiveScanConsole = () => {
             <button
               onClick={() => setIsMinimized(false)}
               className='p-1.5 rounded hover:bg-gray-100 dark:hover:bg-[#262626] text-gray-500 dark:text-[#a3a3a3]'
+              aria-label="Expand console"
             >
               <ChevronUp className='w-4 h-4' />
             </button>
-            <button className='p-1.5 rounded hover:bg-gray-100 dark:hover:bg-[#262626] text-gray-500 dark:text-[#a3a3a3]'>
+            <button className='p-1.5 rounded hover:bg-gray-100 dark:hover:bg-[#262626] text-gray-500 dark:text-[#a3a3a3]' aria-label="Close console">
               <X className='w-4 h-4' />
             </button>
           </div>
@@ -55,10 +56,11 @@ const LiveScanConsole = () => {
             <button
               onClick={() => setIsMinimized(true)}
               className='p-1.5 rounded hover:bg-gray-200 dark:hover:bg-[#262626] text-gray-500 dark:text-[#a3a3a3] transition-colors'
+              aria-label="Minimize console"
             >
               <ChevronDown className='w-4 h-4' />
             </button>
-            <button className='p-1.5 rounded hover:bg-gray-200 dark:hover:bg-[#262626] text-gray-500 dark:text-[#a3a3a3] transition-colors'>
+            <button className='p-1.5 rounded hover:bg-gray-200 dark:hover:bg-[#262626] text-gray-500 dark:text-[#a3a3a3] transition-colors' aria-label="Close console">
               <X className='w-4 h-4' />
             </button>
           </div>

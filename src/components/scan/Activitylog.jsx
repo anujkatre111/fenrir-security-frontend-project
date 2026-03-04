@@ -63,9 +63,13 @@ const Activitylog = ({ part = 'full', activeTab, onTabChange }) => {
 
   if (part === 'tabs') {
     return (
-      <div className='flex gap-6 -mb-px'>
+      <div className='flex gap-6 -mb-px' role="tablist" aria-label="Console tabs">
         <button
           onClick={() => setTab('activity')}
+          role="tab"
+          aria-selected={tab === 'activity'}
+          aria-controls="activity-panel"
+          id="activity-tab"
           className={`pb-3 text-sm font-medium transition-colors ${
             tab === 'activity'
               ? 'text-[#0AA49C] border-b-2 border-[#0AA49C]'
@@ -76,6 +80,10 @@ const Activitylog = ({ part = 'full', activeTab, onTabChange }) => {
         </button>
         <button
           onClick={() => setTab('verification')}
+          role="tab"
+          aria-selected={tab === 'verification'}
+          aria-controls="verification-panel"
+          id="verification-tab"
           className={`pb-3 text-sm font-medium transition-colors ${
             tab === 'verification'
               ? 'text-[#0AA49C] border-b-2 border-[#0AA49C]'
@@ -156,9 +164,11 @@ const Activitylog = ({ part = 'full', activeTab, onTabChange }) => {
 
   return (
     <div className='flex flex-col h-full'>
-      <div className='flex gap-6 border-b border-gray-200 dark:border-[#262626] mb-4'>
+      <div className='flex gap-6 border-b border-gray-200 dark:border-[#262626] mb-4' role="tablist" aria-label="Console tabs">
         <button
           onClick={() => setTab('activity')}
+          role="tab"
+          aria-selected={tab === 'activity'}
           className={`pb-3 text-sm font-medium transition-colors ${
             tab === 'activity'
               ? 'text-[#0AA49C] border-b-2 border-[#0AA49C]'
@@ -169,6 +179,8 @@ const Activitylog = ({ part = 'full', activeTab, onTabChange }) => {
         </button>
         <button
           onClick={() => setTab('verification')}
+          role="tab"
+          aria-selected={tab === 'verification'}
           className={`pb-3 text-sm font-medium transition-colors ${
             tab === 'verification'
               ? 'text-[#0AA49C] border-b-2 border-[#0AA49C]'

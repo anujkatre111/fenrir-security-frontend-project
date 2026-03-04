@@ -4,113 +4,7 @@ import { ChevronLeft, ChevronRight, Filter, LayoutGrid, Plus, Search } from 'luc
 import StatusChip from './components/StatusChip'
 import ProgressBar from './components/ProgressBar'
 import VulnerabilityBadges from './components/VulnerabilityBadges'
-
-const mockScans = [
-  {
-    id: 1,
-    name: 'Web App Servers',
-    type: 'Greybox',
-    status: 'completed',
-    progress: 100,
-    failed: false,
-    critical: 5,
-    high: 12,
-    medium: 23,
-    low: 18,
-    lastScan: '4d ago',
-  },
-  {
-    id: 2,
-    name: 'Web App Servers',
-    type: 'Greybox',
-    status: 'completed',
-    progress: 100,
-    failed: false,
-    critical: 5,
-    high: 12,
-    medium: 23,
-    low: 18,
-    lastScan: '4d ago',
-  },
-  {
-    id: 3,
-    name: 'Web App Servers',
-    type: 'Greybox',
-    status: 'scheduled',
-    progress: 100,
-    failed: false,
-    critical: 5,
-    high: 12,
-    medium: 0,
-    low: 0,
-    lastScan: '4d ago',
-  },
-  {
-    id: 4,
-    name: 'Web App Servers',
-    type: 'Greybox',
-    status: 'completed',
-    progress: 100,
-    failed: false,
-    critical: 5,
-    high: 12,
-    medium: 23,
-    low: 18,
-    lastScan: '4d ago',
-  },
-  {
-    id: 5,
-    name: 'Web App Servers',
-    type: 'Greybox',
-    status: 'scheduled',
-    progress: 100,
-    failed: false,
-    critical: 5,
-    high: 12,
-    medium: 0,
-    low: 0,
-    lastScan: '4d ago',
-  },
-  {
-    id: 6,
-    name: 'Web App Servers',
-    type: 'Greybox',
-    status: 'completed',
-    progress: 100,
-    failed: false,
-    critical: 5,
-    high: 12,
-    medium: 23,
-    low: 18,
-    lastScan: '4d ago',
-  },
-  {
-    id: 7,
-    name: 'IoT Devices',
-    type: 'Blackbox',
-    status: 'failed',
-    progress: 10,
-    failed: true,
-    critical: 2,
-    high: 4,
-    medium: 8,
-    low: 1,
-    lastScan: '3d ago',
-  },
-  {
-    id: 8,
-    name: 'Web App Servers',
-    type: 'Greybox',
-    status: 'completed',
-    progress: 100,
-    failed: false,
-    critical: 5,
-    high: 12,
-    medium: 23,
-    low: 18,
-    lastScan: '4d ago',
-  },
-]
+import { mockScans } from '../data/mockData'
 
 const ScanTable = () => {
   const [search, setSearch] = useState('')
@@ -134,12 +28,14 @@ const ScanTable = () => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className='w-full pl-9 pr-4 py-2 rounded border border-slate-200 dark:border-[#404040] bg-slate-50 dark:bg-[#0C0F13] text-slate-900 dark:text-white placeholder:text-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-[#0AA49C]/50'
+            aria-label="Search scans by name or type"
           />
         </div>
         <div className='flex flex-wrap items-center gap-2 shrink-0'>
           <button
             type='button'
             className='flex items-center gap-2 px-4 py-2 rounded border border-slate-200 dark:border-[#404040] bg-white dark:bg-[#0C0F13] text-slate-700 dark:text-slate-300 text-sm font-medium hover:bg-slate-50 dark:hover:bg-[#262626] transition'
+            aria-label="Filter scans"
           >
             <Filter className='w-4 h-4' />
             Filter
@@ -147,6 +43,7 @@ const ScanTable = () => {
           <button
             type='button'
             className='flex items-center gap-2 px-4 py-2 rounded border border-slate-200 dark:border-[#404040] bg-white dark:bg-[#0C0F13] text-slate-700 dark:text-slate-300 text-sm font-medium hover:bg-slate-50 dark:hover:bg-[#262626] transition'
+            aria-label="Choose columns"
           >
             <LayoutGrid className='w-4 h-4' />
             Column
@@ -154,6 +51,7 @@ const ScanTable = () => {
           <button
             type='button'
             className='flex items-center gap-2 px-4 py-2 rounded bg-[#0AA49C] text-white text-sm font-medium hover:bg-[#089b8a] transition shadow-sm'
+            aria-label="Create new scan"
           >
             <Plus className='w-4 h-4' />
             New scan
@@ -191,7 +89,11 @@ const ScanTable = () => {
               <tr
                 key={scan.id}
                 onClick={() => navigate('/scans')}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); navigate('/scans'); } }}
+                tabIndex={0}
+                role="button"
                 className='border-b border-slate-100 dark:border-[#404040] hover:bg-slate-50 dark:hover:bg-[#262626]/50 cursor-pointer transition'
+                aria-label={`Open scan ${scan.name}`}
               >
                 <td className='py-3 px-4 text-sm text-slate-700 dark:text-slate-200'>
                   {scan.name}
@@ -232,12 +134,14 @@ const ScanTable = () => {
             type='button'
             className='p-2 rounded-lg border border-slate-200 dark:border-[#404040] bg-white dark:bg-[#0C0F13] text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-[#262626] transition disabled:opacity-50'
             disabled
+            aria-label="Previous page"
           >
             <ChevronLeft className='w-4 h-4' />
           </button>
           <button
             type='button'
             className='p-2 rounded-lg border border-slate-200 dark:border-[#404040] bg-white dark:bg-[#0C0F13] text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-[#262626] transition'
+            aria-label="Next page"
           >
             <ChevronRight className='w-4 h-4' />
           </button>

@@ -16,7 +16,7 @@ const sidebarItems2 = [
 
 const Sidebar = () => {
   return (
-    <aside className='fixed left-0 top-0 z-40 flex flex-col justify-between w-[200px] h-screen shadow-md border-r border-slate-200 dark:border-[#262626] bg-white dark:bg-[#0C0F13]'>
+    <aside className='fixed left-0 top-0 z-40 flex flex-col justify-between w-[200px] h-screen shadow-md border-r border-slate-200 dark:border-[#262626] bg-white dark:bg-[#0C0F13]' aria-label="Main navigation">
       <div>
       <div className='flex items-center gap-2 px-4 py-6'>
       <svg className='inline-block mr-[8px]' width="24" height="24" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -30,6 +30,7 @@ const Sidebar = () => {
             <NavLink
               key={item.path}
               to={item.path}
+              aria-label={`Go to ${item.label}`}
               className={({ isActive }) =>
                 `flex items-center gap-4 w-full px-3 py-2 rounded-[24px] text-[14px] font-normal transition
                  ${isActive
@@ -49,6 +50,7 @@ const Sidebar = () => {
             <NavLink
               key={item.path}
               to={item.path}
+              aria-label={`Go to ${item.label}`}
               className={({ isActive }) =>
                 `flex items-center gap-4 w-full px-3 py-2 rounded-[24px] text-[14px] font-normal transition
                  ${isActive
@@ -65,7 +67,7 @@ const Sidebar = () => {
       </div>
 
       <div className='px-4 pb-4'>
-        <button type="button" className='flex items-center gap-2 w-full px-2 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-[#262626] transition text-left'>
+        <button type="button" className='flex items-center gap-2 w-full px-2 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-[#262626] transition text-left' aria-label="User menu">
         <div className='w-8 h-8 rounded-full bg-[#0CC8A8]/30 flex items-center justify-center shrink-0'>
           <span className='text-xs font-medium text-[#0AA49C]'>JD</span>
         </div>

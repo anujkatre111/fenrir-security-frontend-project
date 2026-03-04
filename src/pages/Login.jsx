@@ -12,6 +12,7 @@ const Login = () => {
 
   return (
     <div className='flex flex-col md:flex-row md:justify-between md:items-center items-center min-h-screen overflow-y-auto p-4 pt-20 md:pt-0 md:p-0'>
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       <div className='absolute top-3 left-3 z-10 flex items-center gap-4'>
       <svg className='inline-block mr-[8px]' width="24" height="24" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="80" cy="80" r="80" fill="#0AA49C"/>
@@ -45,28 +46,28 @@ const Login = () => {
       </div>
 
 
-      <div className='flex flex-col justify-center gap-4 z-[1] bg-white dark:bg-[#0C0F13] rounded-lg py-6 px-6 md:py-8 md:px-10 md:mr-[100px] w-full max-w-[400px] border border-transparent dark:border-[#262626]'>
+      <div id="main-content" className='flex flex-col justify-center gap-4 z-[1] bg-white dark:bg-[#0C0F13] rounded-lg py-6 px-6 md:py-8 md:px-10 md:mr-[100px] w-full max-w-[400px] border border-transparent dark:border-[#262626]'>
         <h1 className='text-[#333333] dark:text-[#fafafa] text-2xl md:text-3xl font-medium text-center'>SignUp</h1>
         <p className='text-center text-[#171717] dark:text-[#a3a3a3] text-sm md:text-base'>Already have an account? <Link to="/login" className='text-[#0aa49c] underline'>Login</Link></p>
-        <form onSubmit={handleSubmit} className='flex flex-col gap-4 w-full'> 
+        <form onSubmit={handleSubmit} className='flex flex-col gap-4 w-full' aria-label="Sign up form">
           <div className='border border-gray-300 dark:border-[#262626] rounded-[8px] px-5 py-3'>
-            <input type="text" placeholder="First Name" className='w-full bg-transparent text-slate-900 dark:text-[#fafafa] placeholder:text-[#989797] dark:placeholder:text-[#737373] placeholder:text-[14px] placeholder:tracking-normal outline-none' />
+            <input type="text" placeholder="First Name" className='w-full bg-transparent text-slate-900 dark:text-[#fafafa] placeholder:text-[#989797] dark:placeholder:text-[#737373] placeholder:text-[14px] placeholder:tracking-normal outline-none' aria-label="First name" />
           </div>
           <div className='border border-gray-300 dark:border-[#262626] rounded-[8px] px-5 py-3'>
-            <input type="text" placeholder="Last Name" className='w-full bg-transparent text-slate-900 dark:text-[#fafafa] placeholder:text-[#989797] dark:placeholder:text-[#737373] placeholder:text-[14px] placeholder:tracking-normal outline-none' />
+            <input type="text" placeholder="Last Name" className='w-full bg-transparent text-slate-900 dark:text-[#fafafa] placeholder:text-[#989797] dark:placeholder:text-[#737373] placeholder:text-[14px] placeholder:tracking-normal outline-none' aria-label="Last name" />
           </div>
           <div className='border border-gray-300 dark:border-[#262626] rounded-[8px] px-5 py-3'>
-            <input type="email" placeholder="Email" className='w-full bg-transparent text-slate-900 dark:text-[#fafafa] placeholder:text-[#989797] dark:placeholder:text-[#737373] placeholder:text-[14px] placeholder:tracking-normal outline-none' />
+            <input type="email" placeholder="Email" className='w-full bg-transparent text-slate-900 dark:text-[#fafafa] placeholder:text-[#989797] dark:placeholder:text-[#737373] placeholder:text-[14px] placeholder:tracking-normal outline-none' aria-label="Email" />
           </div>
           <div className='border border-gray-300 dark:border-[#262626] rounded-[8px] px-5 py-3'>
-            <input type="password" placeholder="Password" className='w-full bg-transparent text-slate-900 dark:text-[#fafafa] placeholder:text-[#989797] dark:placeholder:text-[#737373] placeholder:text-[14px] placeholder:tracking-normal outline-none' />
+            <input type="password" placeholder="Password" className='w-full bg-transparent text-slate-900 dark:text-[#fafafa] placeholder:text-[#989797] dark:placeholder:text-[#737373] placeholder:text-[14px] placeholder:tracking-normal outline-none' aria-label="Password" />
           </div>
           
           <label className='flex items-start gap-3 cursor-pointer'>
-            <input type="checkbox" className='mt-1 rounded border-gray-300 text-[#068f78] focus:ring-[#068f78]' />
+            <input type="checkbox" className='mt-1 rounded border-gray-300 text-[#068f78] focus:ring-[#068f78]' aria-label="I agree to terms and privacy policy" />
             <span className='text-[12px] font-normal text-slate-700 dark:text-[#a3a3a3]'>I agree to Aps's <Link to="/terms" className='text-blue-600 dark:text-sky-400 underline hover:underline'>Terms and Conditions</Link> and acknowledge the <Link to="/privacy" className='text-blue-600 dark:text-sky-400 underline hover:underline'>Privacy Policy</Link></span>
           </label>
-          <button type='submit' className='bg-[#0aa49c] text-white text-[14px] p-2 rounded-[24px] hover:bg-[#068f78] transition-all duration-300 font-light tracking-tight cursor-pointer'>Create Account</button>
+          <button type='submit' className='bg-[#0aa49c] text-white text-[14px] p-2 rounded-[24px] hover:bg-[#068f78] transition-all duration-300 font-light tracking-tight cursor-pointer' aria-label="Create account">Create Account</button>
         </form>
 
         <div className='flex gap-3'>
